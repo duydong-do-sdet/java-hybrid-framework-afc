@@ -4,7 +4,7 @@
 
     <test name="FirefoxTest">
         <classes>
-            <class name="afc.orangehrm.Test_01"/>
+            <class name="afc.orangehrm.Level_01_Dont_Repeat_Yourself"/>
         </classes>
     </test>
 
