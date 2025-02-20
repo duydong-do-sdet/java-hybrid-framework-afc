@@ -3,7 +3,7 @@
 <suite name="Magento">
     <test name="Test">
         <classes>
-            <class name="afc.magento.Test_01"/>
+            <class name="afc.magento.Level_01_YAGNI_KISS_DRY"/>
         </classes>
     </test>
 </suite>
