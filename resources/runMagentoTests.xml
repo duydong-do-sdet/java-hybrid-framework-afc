@@ -3,7 +3,7 @@
 <suite name="Magento">
     <test name="Test">
         <classes>
-            <class name="afc.magento.Level_02_Selenium_Wrapper"/>
+            <class name="afc.magento.Level_03_Page_Object_Model"/>
         </classes>
     </test>
 </suite>
