@@ -3,7 +3,7 @@
 <suite name="Magento">
     <test name="Test">
         <classes>
-            <class name="afc.magento.Level_03_Page_Object_Model"/>
+            <class name="afc.magento.Level_04_POM_Page_Factory"/>
         </classes>
     </test>
 </suite>
