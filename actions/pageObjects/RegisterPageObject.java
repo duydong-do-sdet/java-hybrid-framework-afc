@@ -1,6 +1,7 @@
 package pageObjects;
 
 import commons.BasePage;
+import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import pageUIs.RegisterPageUI;
 
@@ -36,10 +37,11 @@ public class RegisterPageObject extends BasePage {
         sendKeysToElement(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, confirmPassword);
     }
 
-    public void clickRegisterButton() {
+    public AccountDashboardPageObject clickRegisterButton() {
         waitForElementToBeClickable(driver, RegisterPageUI.REGISTER_BUTTON);
         clickElement(driver, RegisterPageUI.REGISTER_BUTTON);
         acceptAlert(driver);
+        return PageGeneratorManager.getAccountDashboardPage(driver);
     }
 
 }
