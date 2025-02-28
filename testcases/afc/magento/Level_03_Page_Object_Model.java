@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.AccountDashboardPageObject;
+import pageObjects.myAccount.AccountDashboardPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.RegisterPageObject;
 

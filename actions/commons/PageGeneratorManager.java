@@ -1,9 +1,11 @@
 package commons;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.AccountDashboardPageObject;
+import pageObjects.myAccount.AccountDashboardPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.RegisterPageObject;
+import pageObjects.myAccount.AccountInformationPageObject;
+import pageObjects.myAccount.AddressBookPageObject;
 
 public class PageGeneratorManager {
 
@@ -17,6 +19,14 @@ public class PageGeneratorManager {
 
     public static AccountDashboardPageObject getAccountDashboardPage(WebDriver driver) {
         return new AccountDashboardPageObject(driver);
+    }
+
+    public static AccountInformationPageObject getAccountInformationPage(WebDriver driver) {
+        return new AccountInformationPageObject(driver);
+    }
+
+    public static AddressBookPageObject getAddressBookPage(WebDriver driver) {
+        return new AddressBookPageObject(driver);
     }
 
 }

@@ -3,30 +3,30 @@ package afc.magento;
 import commons.BaseTest;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.myAccount.AccountDashboardPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.RegisterPageObject;
+import pageObjects.myAccount.AccountInformationPageObject;
+import pageObjects.myAccount.AddressBookPageObject;
 
-import java.time.Duration;
-
-public class Level_05_Page_Generator_Manager extends BaseTest {
+public class Level_07_Page_Navigation extends BaseTest {
     private WebDriver driver;
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private AccountDashboardPageObject accountDashboardPage;
+    private AccountInformationPageObject accountInformationPage;
+    private AddressBookPageObject addressBookPage;
     private String firstName, lastName, fullName, emailAddress, password;
 
+    @Parameters({"browser", "url"})
     @BeforeClass
-    public void beforeClass() {
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.manage().window().maximize();
-        driver.get("https://live.techpanda.org/");
+    public void beforeClass(String browserName, String appUrl) {
+        driver = getWebDriver(browserName, appUrl);
         homePage = PageGeneratorManager.getHomePage(driver);
 
         firstName = "Dong";
@@ -34,28 +34,23 @@ public class Level_05_Page_Generator_Manager extends BaseTest {
         fullName = firstName + " " + lastName;
         emailAddress = "dongafc" + getRandomNumber() + "@gmail.com";
         password = "SeJava@4";
-    }
 
-    @Test
-    public void User_01_Register() {
         registerPage = homePage.selectRegisterInMyAccountHeaderDropdown();
-
-        registerPage.sendKeysToFirstNameTextbox(firstName);
-
-        registerPage.sendKeysToLastNameTextbox(lastName);
-
-        registerPage.sendKeysToEmailTextbox(emailAddress);
-
-        registerPage.sendKeysToPasswordTextbox(password);
-
-        registerPage.sendKeysToConfirmPasswordTextbox(password);
-
-        accountDashboardPage = registerPage.clickRegisterButton();
+        accountDashboardPage = registerPage.registerNewUserAccount(firstName, lastName, emailAddress, password);
     }
 
     @Test
-    public void User_02_Verify() {
-        Assert.assertEquals(accountDashboardPage.getRegisterSuccessMessage(), "Thank you for registering with Main Website Store.");
+    public void User_01_Page_Navigation() {
+        Assert.assertTrue(accountDashboardPage.isPageTitleDisplayed());
+
+        accountInformationPage = accountDashboardPage.clickAccountInformationSidebarLink();
+        Assert.assertTrue(accountInformationPage.isPageTitleDisplayed());
+
+        addressBookPage = accountInformationPage.clickAddressBookSidebarLink();
+        Assert.assertTrue(addressBookPage.isPageTitleDisplayed());
+
+        accountDashboardPage = addressBookPage.clickAccountDashboardSidebarLink();
+        Assert.assertTrue(accountDashboardPage.isPageTitleDisplayed());
 
         Assert.assertEquals(accountDashboardPage.getWelcomeMessage(), "Hello, " + fullName + "!");
 

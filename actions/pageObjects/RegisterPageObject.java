@@ -3,6 +3,7 @@ package pageObjects;
 import commons.BasePage;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
+import pageObjects.myAccount.AccountDashboardPageObject;
 import pageUIs.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
@@ -42,6 +43,15 @@ public class RegisterPageObject extends BasePage {
         clickElement(driver, RegisterPageUI.REGISTER_BUTTON);
         acceptAlert(driver);
         return PageGeneratorManager.getAccountDashboardPage(driver);
+    }
+
+    public AccountDashboardPageObject registerNewUserAccount(String firstName, String lastName, String emailAddress, String password) {
+        sendKeysToFirstNameTextbox(firstName);
+        sendKeysToLastNameTextbox(lastName);
+        sendKeysToEmailTextbox(emailAddress);
+        sendKeysToPasswordTextbox(password);
+        sendKeysToConfirmPasswordTextbox(password);
+        return clickRegisterButton();
     }
 
 }

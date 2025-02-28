@@ -1,13 +1,13 @@
-package pageObjects;
+package pageObjects.myAccount;
 
-import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.AccountDashboardPageUI;
+import pageUIs.myAccount.AccountDashboardPageUI;
 
-public class AccountDashboardPageObject extends BasePage {
+public class AccountDashboardPageObject extends MyAccountSidebar {
     private WebDriver driver;
 
     public AccountDashboardPageObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
@@ -24,6 +24,11 @@ public class AccountDashboardPageObject extends BasePage {
     public String getContactInformationText() {
         waitForElementToBeVisible(driver, AccountDashboardPageUI.CONTACT_INFORMATION_TEXT);
         return getElementText(driver, AccountDashboardPageUI.CONTACT_INFORMATION_TEXT);
+    }
+
+    public boolean isPageTitleDisplayed() {
+        waitForElementToBeVisible(driver, AccountDashboardPageUI.PAGE_TITLE);
+        return isElementDisplayed(driver, AccountDashboardPageUI.PAGE_TITLE);
     }
 
 }
