@@ -1,6 +1,6 @@
-package pageUIs;
+package pageUIs.portal;
 
-public class RegisterPageUI {
+public class PortalRegisterPageUI {
 
     public static final String FIRSTNAME_TEXTBOX = "//input[@id='firstname']";
     public static final String LASTNAME_TEXTBOX = "//input[@id='lastname']";

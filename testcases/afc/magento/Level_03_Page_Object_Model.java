@@ -7,17 +7,17 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.myAccount.AccountDashboardPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.portal.PortalHomePageObject;
+import pageObjects.portal.PortalRegisterPageObject;
+import pageObjects.portal.myAccount.PortalAccountDashboardPageObject;
 
 import java.time.Duration;
 
 public class Level_03_Page_Object_Model extends BaseTest {
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private AccountDashboardPageObject accountDashboardPage;
+    private PortalHomePageObject homePage;
+    private PortalRegisterPageObject registerPage;
+    private PortalAccountDashboardPageObject accountDashboardPage;
     private String firstName, lastName, fullName, emailAddress, password;
 
     @BeforeClass
@@ -26,7 +26,7 @@ public class Level_03_Page_Object_Model extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
         driver.get("https://live.techpanda.org/");
-        homePage = new HomePageObject(driver);
+        homePage = new PortalHomePageObject(driver);
 
         firstName = "Dong";
         lastName = "Do";
@@ -38,7 +38,7 @@ public class Level_03_Page_Object_Model extends BaseTest {
     @Test
     public void User_01_Register() {
         homePage.selectRegisterInMyAccountHeaderDropdown();
-        registerPage = new RegisterPageObject(driver);
+        registerPage = new PortalRegisterPageObject(driver);
 
         registerPage.sendKeysToFirstNameTextbox(firstName);
 
@@ -51,7 +51,7 @@ public class Level_03_Page_Object_Model extends BaseTest {
         registerPage.sendKeysToConfirmPasswordTextbox(password);
 
         registerPage.clickRegisterButton();
-        accountDashboardPage = new AccountDashboardPageObject(driver);
+        accountDashboardPage = new PortalAccountDashboardPageObject(driver);
     }
 
     @Test

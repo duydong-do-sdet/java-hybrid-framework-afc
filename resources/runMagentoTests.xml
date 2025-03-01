@@ -2,12 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Magento">
 
-    <parameter name="url" value="https://live.techpanda.org/"/>
+    <parameter name="portalUrl" value="https://live.techpanda.org/"/>
+    <parameter name="adminUrl" value="https://live.techpanda.org/index.php/backendlogin"/>
 
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="afc.magento.Level_07_Page_Navigation"/>
+            <class name="afc.magento.Level_08_Cross_Site_Portal_Admin"/>
         </classes>
     </test>
 

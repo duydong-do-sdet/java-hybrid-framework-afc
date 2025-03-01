@@ -1,32 +1,51 @@
 package commons;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.myAccount.AccountDashboardPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
-import pageObjects.myAccount.AccountInformationPageObject;
-import pageObjects.myAccount.AddressBookPageObject;
+import pageObjects.admin.AdminLoginPageObject;
+import pageObjects.admin.AdminManageCustomersPageObject;
+import pageObjects.portal.PortalHomePageObject;
+import pageObjects.portal.PortalLoginPageObject;
+import pageObjects.portal.PortalRegisterPageObject;
+import pageObjects.portal.myAccount.PortalAccountDashboardPageObject;
+import pageObjects.portal.myAccount.PortalAccountInformationPageObject;
+import pageObjects.portal.myAccount.PortalAddressBookPageObject;
 
 public class PageGeneratorManager {
 
-    public static HomePageObject getHomePage(WebDriver driver) {
-        return new HomePageObject(driver);
+    // Portal pages
+
+    public static PortalHomePageObject getPortalHomePage(WebDriver driver) {
+        return new PortalHomePageObject(driver);
     }
 
-    public static RegisterPageObject getRegisterPage(WebDriver driver) {
-        return new RegisterPageObject(driver);
+    public static PortalRegisterPageObject getPortalRegisterPage(WebDriver driver) {
+        return new PortalRegisterPageObject(driver);
     }
 
-    public static AccountDashboardPageObject getAccountDashboardPage(WebDriver driver) {
-        return new AccountDashboardPageObject(driver);
+    public static PortalAccountDashboardPageObject getPortalAccountDashboardPage(WebDriver driver) {
+        return new PortalAccountDashboardPageObject(driver);
     }
 
-    public static AccountInformationPageObject getAccountInformationPage(WebDriver driver) {
-        return new AccountInformationPageObject(driver);
+    public static PortalAccountInformationPageObject getPortalAccountInformationPage(WebDriver driver) {
+        return new PortalAccountInformationPageObject(driver);
     }
 
-    public static AddressBookPageObject getAddressBookPage(WebDriver driver) {
-        return new AddressBookPageObject(driver);
+    public static PortalAddressBookPageObject getPortalAddressBookPage(WebDriver driver) {
+        return new PortalAddressBookPageObject(driver);
+    }
+
+    public static PortalLoginPageObject getPortalLoginPage(WebDriver driver) {
+        return new PortalLoginPageObject(driver);
+    }
+
+    // Admin pages
+
+    public static AdminLoginPageObject getAdminLoginPage(WebDriver driver) {
+        return new AdminLoginPageObject(driver);
+    }
+
+    public static AdminManageCustomersPageObject getAdminManageCustomersPage(WebDriver driver) {
+        return new AdminManageCustomersPageObject(driver);
     }
 
 }

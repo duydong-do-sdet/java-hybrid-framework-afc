@@ -8,26 +8,26 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.myAccount.AccountDashboardPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
-import pageObjects.myAccount.AccountInformationPageObject;
-import pageObjects.myAccount.AddressBookPageObject;
+import pageObjects.portal.PortalHomePageObject;
+import pageObjects.portal.PortalRegisterPageObject;
+import pageObjects.portal.myAccount.PortalAccountDashboardPageObject;
+import pageObjects.portal.myAccount.PortalAccountInformationPageObject;
+import pageObjects.portal.myAccount.PortalAddressBookPageObject;
 
 public class Level_07_Page_Navigation extends BaseTest {
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private AccountDashboardPageObject accountDashboardPage;
-    private AccountInformationPageObject accountInformationPage;
-    private AddressBookPageObject addressBookPage;
+    private PortalHomePageObject homePage;
+    private PortalRegisterPageObject registerPage;
+    private PortalAccountDashboardPageObject accountDashboardPage;
+    private PortalAccountInformationPageObject accountInformationPage;
+    private PortalAddressBookPageObject addressBookPage;
     private String firstName, lastName, fullName, emailAddress, password;
 
-    @Parameters({"browser", "url"})
+    @Parameters({"browser", "portalUrl"})
     @BeforeClass
     public void beforeClass(String browserName, String appUrl) {
         driver = getWebDriver(browserName, appUrl);
-        homePage = PageGeneratorManager.getHomePage(driver);
+        homePage = PageGeneratorManager.getPortalHomePage(driver);
 
         firstName = "Dong";
         lastName = "Do";

@@ -6,6 +6,8 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.admin.AdminLoginPageObject;
+import pageObjects.portal.PortalHomePageObject;
 
 import java.time.Duration;
 import java.util.List;
@@ -326,6 +328,16 @@ public class BasePage {
 
     private WebDriverWait getExplicitWait(WebDriver driver) {
         return new WebDriverWait(driver, Duration.ofSeconds(longTimeout));
+    }
+
+    public PortalHomePageObject openPortalAppUrl(WebDriver driver, String portalAppUrl) {
+        openPage(driver, portalAppUrl);
+        return PageGeneratorManager.getPortalHomePage(driver);
+    }
+
+    public AdminLoginPageObject openAdminAppUrl(WebDriver driver, String adminAppUrl) {
+        openPage(driver, adminAppUrl);
+        return PageGeneratorManager.getAdminLoginPage(driver);
     }
 
     // Common constants

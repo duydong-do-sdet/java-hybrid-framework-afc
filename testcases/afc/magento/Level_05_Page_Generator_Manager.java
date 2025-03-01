@@ -8,17 +8,17 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.myAccount.AccountDashboardPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.portal.PortalHomePageObject;
+import pageObjects.portal.PortalRegisterPageObject;
+import pageObjects.portal.myAccount.PortalAccountDashboardPageObject;
 
 import java.time.Duration;
 
 public class Level_05_Page_Generator_Manager extends BaseTest {
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private AccountDashboardPageObject accountDashboardPage;
+    private PortalHomePageObject homePage;
+    private PortalRegisterPageObject registerPage;
+    private PortalAccountDashboardPageObject accountDashboardPage;
     private String firstName, lastName, fullName, emailAddress, password;
 
     @BeforeClass
@@ -27,7 +27,7 @@ public class Level_05_Page_Generator_Manager extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
         driver.get("https://live.techpanda.org/");
-        homePage = PageGeneratorManager.getHomePage(driver);
+        homePage = PageGeneratorManager.getPortalHomePage(driver);
 
         firstName = "Dong";
         lastName = "Do";

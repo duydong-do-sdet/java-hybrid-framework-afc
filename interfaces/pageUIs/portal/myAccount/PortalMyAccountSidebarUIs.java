@@ -1,6 +1,6 @@
-package pageUIs.myAccount;
+package pageUIs.portal.myAccount;
 
-public class MyAccountSidebarUIs {
+public class PortalMyAccountSidebarUIs {
 
     public static final String ACCOUNT_DASHBOARD_SIDEBAR_LINK = "//div[@class='block block-account']//a[text()='Account Dashboard']";
     public static final String ACCOUNT_INFORMATION_SIDEBAR_LINK = "//div[@class='block block-account']//a[text()='Account Information']";
