@@ -18,15 +18,13 @@ public class AdminManageCustomersPageObject extends BasePage {
     }
 
     public boolean isUserInfoDisplayed(String firstName, String emailAddress) {
-        String customerInfo = "//td[contains(text(),'" + firstName + "')]/following-sibling::td[contains(text(),'" + emailAddress + "')]";
-        waitForElementToBeVisible(driver, customerInfo);
-        return isElementDisplayed(driver, customerInfo);
+        waitForElementToBeVisible(driver, AdminManageCustomersPageUI.CUSTOMER_INFO_BY_NAME_EMAIL, firstName, emailAddress);
+        return isElementDisplayed(driver, AdminManageCustomersPageUI.CUSTOMER_INFO_BY_NAME_EMAIL, firstName, emailAddress);
     }
 
     public void deleteUserAccount(String firstName, String emailAddress) {
-        String checkbox = "//td[contains(text(),'" + firstName + "')]/following-sibling::td[contains(text(),'" + emailAddress + "')]/parent::tr//input[@type='checkbox']";
-        waitForElementToBeClickable(driver, checkbox);
-        checkDefaultCheckboxOrRadioButton(driver, checkbox);
+        waitForElementToBeClickable(driver, AdminManageCustomersPageUI.CUSTOMER_CHECKBOX_BY_NAME_EMAIL, firstName, emailAddress);
+        checkDefaultCheckboxOrRadioButton(driver, AdminManageCustomersPageUI.CUSTOMER_CHECKBOX_BY_NAME_EMAIL, firstName, emailAddress);
         waitForElementToBeClickable(driver, AdminManageCustomersPageUI.ACTIONS_DROPDOWN);
         selectOptionInDefaultDropdown(driver, AdminManageCustomersPageUI.ACTIONS_DROPDOWN, "Delete");
         waitForElementToBeClickable(driver, AdminManageCustomersPageUI.SUBMIT_BUTTON);
