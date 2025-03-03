@@ -1,7 +1,7 @@
-package pageObjects.portal.myAccount;
+package pageObjects.magento.portal.myAccount;
 
 import org.openqa.selenium.WebDriver;
-import pageUIs.portal.myAccount.PortalAccountInformationPageUI;
+import pageUIs.magento.portal.myAccount.PortalAccountInformationPageUI;
 
 public class PortalAccountInformationPageObject extends PortalMyAccountSidebar {
     private WebDriver driver;

@@ -8,11 +8,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.portal.PortalHomePageObject;
-import pageObjects.portal.PortalRegisterPageObject;
-import pageObjects.portal.myAccount.PortalAccountDashboardPageObject;
-import pageObjects.portal.myAccount.PortalAccountInformationPageObject;
-import pageObjects.portal.myAccount.PortalAddressBookPageObject;
+import pageObjects.magento.portal.PortalHomePageObject;
+import pageObjects.magento.portal.PortalRegisterPageObject;
+import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
+import pageObjects.magento.portal.myAccount.PortalAccountInformationPageObject;
+import pageObjects.magento.portal.myAccount.PortalAddressBookPageObject;
 
 public class Level_07_Page_Navigation extends BaseTest {
     private WebDriver driver;

@@ -1,4 +1,4 @@
-package pageUIs.portal;
+package pageUIs.magento.portal;
 
 public class PortalRegisterPageUI {
 

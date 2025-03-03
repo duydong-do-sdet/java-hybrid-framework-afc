@@ -1,14 +1,14 @@
 package commons;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.admin.AdminLoginPageObject;
-import pageObjects.admin.AdminManageCustomersPageObject;
-import pageObjects.portal.PortalHomePageObject;
-import pageObjects.portal.PortalLoginPageObject;
-import pageObjects.portal.PortalRegisterPageObject;
-import pageObjects.portal.myAccount.PortalAccountDashboardPageObject;
-import pageObjects.portal.myAccount.PortalAccountInformationPageObject;
-import pageObjects.portal.myAccount.PortalAddressBookPageObject;
+import pageObjects.magento.admin.AdminLoginPageObject;
+import pageObjects.magento.admin.AdminManageCustomersPageObject;
+import pageObjects.magento.portal.PortalHomePageObject;
+import pageObjects.magento.portal.PortalLoginPageObject;
+import pageObjects.magento.portal.PortalRegisterPageObject;
+import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
+import pageObjects.magento.portal.myAccount.PortalAccountInformationPageObject;
+import pageObjects.magento.portal.myAccount.PortalAddressBookPageObject;
 
 public class PageGeneratorManager {
 

@@ -1,10 +1,10 @@
-package pageObjects.portal;
+package pageObjects.magento.portal;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
-import pageObjects.portal.myAccount.PortalAccountDashboardPageObject;
-import pageUIs.portal.PortalRegisterPageUI;
+import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
+import pageUIs.magento.portal.PortalRegisterPageUI;
 
 public class PortalRegisterPageObject extends BasePage {
     private WebDriver driver;

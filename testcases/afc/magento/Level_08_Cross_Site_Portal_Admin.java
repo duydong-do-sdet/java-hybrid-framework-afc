@@ -8,12 +8,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.admin.AdminLoginPageObject;
-import pageObjects.admin.AdminManageCustomersPageObject;
-import pageObjects.portal.PortalHomePageObject;
-import pageObjects.portal.PortalLoginPageObject;
-import pageObjects.portal.PortalRegisterPageObject;
-import pageObjects.portal.myAccount.PortalAccountDashboardPageObject;
+import pageObjects.magento.admin.AdminLoginPageObject;
+import pageObjects.magento.admin.AdminManageCustomersPageObject;
+import pageObjects.magento.portal.PortalHomePageObject;
+import pageObjects.magento.portal.PortalLoginPageObject;
+import pageObjects.magento.portal.PortalRegisterPageObject;
+import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
 
 public class Level_08_Cross_Site_Portal_Admin extends BaseTest {
     private WebDriver driver;

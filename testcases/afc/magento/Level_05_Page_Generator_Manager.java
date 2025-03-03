@@ -8,9 +8,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.portal.PortalHomePageObject;
-import pageObjects.portal.PortalRegisterPageObject;
-import pageObjects.portal.myAccount.PortalAccountDashboardPageObject;
+import pageObjects.magento.portal.PortalHomePageObject;
+import pageObjects.magento.portal.PortalRegisterPageObject;
+import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
 
 import java.time.Duration;
 

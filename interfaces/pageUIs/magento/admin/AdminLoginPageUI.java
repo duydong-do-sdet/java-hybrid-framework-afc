@@ -1,4 +1,4 @@
-package pageUIs.admin;
+package pageUIs.magento.admin;
 
 public class AdminLoginPageUI {
 

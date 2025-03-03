@@ -1,4 +1,4 @@
-package pageUIs.portal.myAccount;
+package pageUIs.magento.portal.myAccount;
 
 public class PortalAccountInformationPageUI {
 

@@ -1,9 +1,9 @@
-package pageObjects.admin;
+package pageObjects.magento.admin;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
-import pageUIs.admin.AdminLoginPageUI;
+import pageUIs.magento.admin.AdminLoginPageUI;
 
 public class AdminLoginPageObject extends BasePage {
     private WebDriver driver;

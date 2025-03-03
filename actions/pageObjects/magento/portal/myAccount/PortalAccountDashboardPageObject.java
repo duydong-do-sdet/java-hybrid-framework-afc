@@ -1,9 +1,9 @@
-package pageObjects.portal.myAccount;
+package pageObjects.magento.portal.myAccount;
 
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
-import pageObjects.portal.PortalHomePageObject;
-import pageUIs.portal.myAccount.PortalAccountDashboardPageUI;
+import pageObjects.magento.portal.PortalHomePageObject;
+import pageUIs.magento.portal.myAccount.PortalAccountDashboardPageUI;
 
 public class PortalAccountDashboardPageObject extends PortalMyAccountSidebar {
     private WebDriver driver;

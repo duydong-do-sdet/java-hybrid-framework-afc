@@ -1,9 +1,9 @@
-package pageObjects.portal;
+package pageObjects.magento.portal;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
-import pageUIs.portal.PortalHomePageUI;
+import pageUIs.magento.portal.PortalHomePageUI;
 
 public class PortalHomePageObject extends BasePage {
     private WebDriver driver;
