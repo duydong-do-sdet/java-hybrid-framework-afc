@@ -8,4 +8,8 @@ public class PageGeneratorJQuery {
         return new WebTablePageObject(driver);
     }
 
+    public static UploadFilePageObject getUploadPage(WebDriver driver) {
+        return new UploadFilePageObject(driver);
+    }
+
 }

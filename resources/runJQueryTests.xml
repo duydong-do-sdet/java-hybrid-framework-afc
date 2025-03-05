@@ -4,12 +4,12 @@
 
     <parameter name="crudUrl" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"/>
     <parameter name="dynamicUrl" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/"/>
+    <parameter name="uploadUrl" value="https://blueimp.github.io/jQuery-File-Upload/"/>
 
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="afc.jquery.Level_09_Data_Grid_Crud"/>
-            <class name="afc.jquery.Level_09_Data_Grid_Dynamic"/>
+            <class name="afc.jquery.Level_10_Upload_File"/>
         </classes>
     </test>
 
