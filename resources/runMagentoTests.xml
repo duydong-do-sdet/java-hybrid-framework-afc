@@ -8,7 +8,7 @@
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="afc.magento.Level_11_Assert_Verify"/>
+            <class name="afc.magento.Level_12_Log4j2"/>
         </classes>
     </test>
 
