@@ -16,6 +16,10 @@ public class BaseTest {
     private WebDriver driver;
     protected final Logger log = LogManager.getLogger(getClass());
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     protected WebDriver getWebDriver(String browserName, String appUrl) {
         switch (browserName) {
             case "firefox":
