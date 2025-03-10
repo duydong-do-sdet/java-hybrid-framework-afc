@@ -33,3 +33,4 @@ bin/
 ### Logs Reports ###
 log4j2-output/
 test-output/
+extentreports-output/

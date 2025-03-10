@@ -3,9 +3,10 @@
 <suite name="Magento">
 
     <listeners>
-        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
-        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-        <listener class-name="reportConfig.ReportNGListener"/>
+        <!--<listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
+        <!--<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
+        <!--<listener class-name="reportConfig.ReportNGListener"/>-->
+        <listener class-name="reportConfig.ExtentReportsListener"/>
     </listeners>
 
     <parameter name="portalUrl" value="https://live.techpanda.org/"/>
@@ -14,7 +15,7 @@
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="afc.magento.Level_13_ReportNG"/>
+            <class name="afc.magento.Level_14_ExtentReports"/>
         </classes>
     </test>
 
