@@ -2,6 +2,7 @@ package pageObjects.magento.portal;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
 import pageUIs.magento.portal.PortalRegisterPageUI;
@@ -13,31 +14,37 @@ public class PortalRegisterPageObject extends BasePage {
         this.driver = driver;
     }
 
+    @Step("Enter '{firstName}' into the First Name textbox")
     public void sendKeysToFirstNameTextbox(String firstName) {
         waitForElementToBeVisible(driver, PortalRegisterPageUI.FIRSTNAME_TEXTBOX);
         sendKeysToElement(driver, PortalRegisterPageUI.FIRSTNAME_TEXTBOX, firstName);
     }
 
+    @Step("Enter '{lastName}' into the Last Name textbox")
     public void sendKeysToLastNameTextbox(String lastName) {
         waitForElementToBeVisible(driver, PortalRegisterPageUI.LASTNAME_TEXTBOX);
         sendKeysToElement(driver, PortalRegisterPageUI.LASTNAME_TEXTBOX, lastName);
     }
 
+    @Step("Enter '{emailAddress}' into the Email textbox")
     public void sendKeysToEmailTextbox(String emailAddress) {
         waitForElementToBeVisible(driver, PortalRegisterPageUI.EMAIL_TEXTBOX);
         sendKeysToElement(driver, PortalRegisterPageUI.EMAIL_TEXTBOX, emailAddress);
     }
 
+    @Step("Enter '{password}' into the Password textbox")
     public void sendKeysToPasswordTextbox(String password) {
         waitForElementToBeVisible(driver, PortalRegisterPageUI.PASSWORD_TEXTBOX);
         sendKeysToElement(driver, PortalRegisterPageUI.PASSWORD_TEXTBOX, password);
     }
 
+    @Step("Enter '{confirmPassword}' into the Confirm Password textbox")
     public void sendKeysToConfirmPasswordTextbox(String confirmPassword) {
         waitForElementToBeVisible(driver, PortalRegisterPageUI.CONFIRM_PASSWORD_TEXTBOX);
         sendKeysToElement(driver, PortalRegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, confirmPassword);
     }
 
+    @Step("Click the 'Register' button")
     public PortalAccountDashboardPageObject clickRegisterButton() {
         waitForElementToBeClickable(driver, PortalRegisterPageUI.REGISTER_BUTTON);
         clickElement(driver, PortalRegisterPageUI.REGISTER_BUTTON);
@@ -45,6 +52,7 @@ public class PortalRegisterPageObject extends BasePage {
         return PageGeneratorManager.getPortalAccountDashboardPage(driver);
     }
 
+    @Step("Register a new user account with First Name: '{firstName}', Last Name: '{lastName}', Email: '{emailAddress}', and Password: '{password}'")
     public PortalAccountDashboardPageObject registerNewUserAccount(String firstName, String lastName, String emailAddress, String password) {
         sendKeysToFirstNameTextbox(firstName);
         sendKeysToLastNameTextbox(lastName);

@@ -34,3 +34,5 @@ bin/
 log4j2-output/
 test-output/
 extentreports-output/
+allure-results/
+allure-report/

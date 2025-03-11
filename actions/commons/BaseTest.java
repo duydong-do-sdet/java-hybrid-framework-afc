@@ -8,7 +8,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeSuite;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.Random;
 
@@ -74,6 +76,30 @@ public class BaseTest {
             TestFailuresCollector.getTestFailure().addFailure(Reporter.getCurrentTestResult(), failure);
             Reporter.getCurrentTestResult().setThrowable(failure);
             log.info("---------------------- FAILED ----------------------");
+        }
+    }
+
+    @BeforeSuite
+    public void beforeSuite() {
+        deleteAllFilesInFolder("allure-results");
+    }
+
+    public void deleteAllFilesInFolder(String folderName) {
+        try {
+            String folderPath = GlobalConstants.PROJECT_BASE_PATH + folderName;
+            File folder = new File(folderPath);
+            if (folder.exists()) {
+                File[] listOfFiles = folder.listFiles();
+                if (listOfFiles != null) {
+                    for (File file : listOfFiles) {
+                        if (file.isFile()) {
+                            file.delete();
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error deleting files: " + e.getMessage());
         }
     }
 
