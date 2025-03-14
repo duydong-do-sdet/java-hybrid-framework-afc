@@ -2,9 +2,12 @@ package pageObjects.magento.portal.myAccount;
 
 import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import pageObjects.magento.portal.PortalHomePageObject;
 import pageUIs.magento.portal.myAccount.PortalAccountDashboardPageUI;
+
+import java.util.Set;
 
 public class PortalAccountDashboardPageObject extends PortalMyAccountSidebar {
     private WebDriver driver;
@@ -44,6 +47,10 @@ public class PortalAccountDashboardPageObject extends PortalMyAccountSidebar {
         selectOptionInCustomDropdown(driver, PortalAccountDashboardPageUI.MY_ACCOUNT_HEADER_DROPDOWN, PortalAccountDashboardPageUI.MY_ACCOUNT_HEADER_DROPDOWN_OPTIONS, "Log Out");
         sleepForSeconds(8);
         return PageGeneratorManager.getPortalHomePage(driver);
+    }
+
+    public Set<Cookie> getCookiesAfterLogin() {
+        return getCookies(driver);
     }
 
 }

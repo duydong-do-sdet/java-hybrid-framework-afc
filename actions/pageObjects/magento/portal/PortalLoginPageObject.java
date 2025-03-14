@@ -2,9 +2,12 @@ package pageObjects.magento.portal;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
 import pageUIs.magento.portal.PortalLoginPageUI;
+
+import java.util.Set;
 
 public class PortalLoginPageObject extends BasePage {
     private WebDriver driver;
@@ -39,6 +42,12 @@ public class PortalLoginPageObject extends BasePage {
         sendKeysToEmailTextbox(emailAddress);
         sendKeysToPasswordTextbox(password);
         return clickLoginButton();
+    }
+
+    public PortalAccountDashboardPageObject loginByCookies(Set<Cookie> cookies) {
+        setCookies(driver, cookies);
+        refreshPage(driver);
+        return PageGeneratorManager.getPortalAccountDashboardPage(driver);
     }
 
 }

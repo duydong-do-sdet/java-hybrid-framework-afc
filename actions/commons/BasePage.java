@@ -110,6 +110,16 @@ public class BasePage {
         driver.switchTo().window(windowId);
     }
 
+    protected Set<Cookie> getCookies(WebDriver driver) {
+        return driver.manage().getCookies();
+    }
+
+    protected void setCookies(WebDriver driver, Set<Cookie> cookies) {
+        for (Cookie cookie : cookies) {
+            driver.manage().addCookie(cookie);
+        }
+    }
+
     // WebElement methods
 
     private By getByXPath(String xpathLocator) {
