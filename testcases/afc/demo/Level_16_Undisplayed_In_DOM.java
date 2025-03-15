@@ -1,4 +1,4 @@
-package afc.undisplayed;
+package afc.demo;
 
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
@@ -7,8 +7,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.undisplayed.UndisplayedPageGenerator;
-import pageObjects.undisplayed.UndisplayedPageObject;
+import pageObjects.demo.UndisplayedPageGenerator;
+import pageObjects.demo.UndisplayedPageObject;
 
 public class Level_16_Undisplayed_In_DOM extends BaseTest {
     private WebDriver driver;

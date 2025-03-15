@@ -1,4 +1,4 @@
-package pageObjects.undisplayed;
+package pageObjects.demo;
 
 import org.openqa.selenium.WebDriver;
 

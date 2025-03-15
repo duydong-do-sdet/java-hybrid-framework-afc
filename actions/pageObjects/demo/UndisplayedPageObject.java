@@ -1,8 +1,8 @@
-package pageObjects.undisplayed;
+package pageObjects.demo;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.undisplayed.UndisplayedPageUI;
+import pageUIs.demo.UndisplayedPageUI;
 
 public class UndisplayedPageObject extends BasePage {
     private WebDriver driver;

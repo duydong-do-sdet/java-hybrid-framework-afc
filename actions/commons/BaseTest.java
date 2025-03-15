@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
@@ -100,6 +101,52 @@ public class BaseTest {
             }
         } catch (Exception e) {
             System.out.println("Error deleting files: " + e.getMessage());
+        }
+    }
+
+    protected void quitDriver() {
+        if (driver != null) {
+            try {
+                driver.quit();
+            } catch (Exception e) {
+                System.out.println("Error while closing driver: " + e.getMessage());
+            } finally {
+                driver = null;
+            }
+        }
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void afterSuite() {
+        killAllDriverProcesses();
+    }
+
+    public void killAllDriverProcesses() {
+        try {
+            String[] driverNames = {"geckodriver", "chromedriver", "msedgedriver", "safaridriver"};
+            String osName = GlobalConstants.OS_NAME.toLowerCase();
+            String killCommand;
+            ProcessBuilder processBuilder;
+
+            for (String driverName : driverNames) {
+                if (osName.contains("win")) {
+                    killCommand = "taskkill /F /FI \"IMAGENAME eq " + driverName + "*\"";
+                    processBuilder = new ProcessBuilder("cmd.exe", "/c", killCommand);
+                } else {
+                    killCommand = "pkill -f " + driverName;
+                    processBuilder = new ProcessBuilder("sh", "-c", killCommand);
+                }
+
+                Process process = processBuilder.start();
+                int exitCode = process.waitFor();
+                if (exitCode == 0) {
+                    System.out.println("Successfully terminated: " + driverName);
+                } else {
+                    System.out.println("Failed to terminate: " + driverName);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error while killing driver processes: " + e.getMessage());
         }
     }
 

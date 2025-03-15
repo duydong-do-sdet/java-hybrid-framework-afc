@@ -1,4 +1,4 @@
-package pageUIs.undisplayed;
+package pageUIs.demo;
 
 public class UndisplayedPageUI {
 
