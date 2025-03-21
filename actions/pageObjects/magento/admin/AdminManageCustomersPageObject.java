@@ -1,14 +1,15 @@
 package pageObjects.magento.admin;
 
-import commons.BasePage;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
+import pageObjects.magento.common.AdminPageObject;
 import pageUIs.magento.admin.AdminManageCustomersPageUI;
 
-public class AdminManageCustomersPageObject extends BasePage {
+public class AdminManageCustomersPageObject extends AdminPageObject {
     private WebDriver driver;
 
     public AdminManageCustomersPageObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 

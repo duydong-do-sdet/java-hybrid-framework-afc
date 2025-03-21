@@ -1,18 +1,19 @@
 package pageObjects.magento.portal;
 
-import commons.BasePage;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import pageObjects.magento.common.PortalPageObject;
 import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
 import pageUIs.magento.portal.PortalLoginPageUI;
 
 import java.util.Set;
 
-public class PortalLoginPageObject extends BasePage {
+public class PortalLoginPageObject extends PortalPageObject {
     private WebDriver driver;
 
     public PortalLoginPageObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 

@@ -16,8 +16,7 @@
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="afc.magento.common.Level_17_Register_Login_Cookies"/>
-            <class name="afc.magento.Level_17_Share_States_Cookies"/>
+            <class name="afc.magento.Level_19_Pattern_Objects"/>
         </classes>
     </test>
 

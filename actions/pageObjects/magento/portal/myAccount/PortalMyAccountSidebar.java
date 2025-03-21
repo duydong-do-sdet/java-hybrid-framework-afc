@@ -1,14 +1,15 @@
 package pageObjects.magento.portal.myAccount;
 
-import commons.BasePage;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
+import pageObjects.magento.common.PortalPageObject;
 import pageUIs.magento.portal.myAccount.PortalMyAccountSidebarUIs;
 
-public class PortalMyAccountSidebar extends BasePage {
+public class PortalMyAccountSidebar extends PortalPageObject {
     private WebDriver driver;
 
     public PortalMyAccountSidebar(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 

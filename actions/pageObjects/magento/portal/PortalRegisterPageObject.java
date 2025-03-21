@@ -1,16 +1,17 @@
 package pageObjects.magento.portal;
 
-import commons.BasePage;
 import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
+import pageObjects.magento.common.PortalPageObject;
 import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
 import pageUIs.magento.portal.PortalRegisterPageUI;
 
-public class PortalRegisterPageObject extends BasePage {
+public class PortalRegisterPageObject extends PortalPageObject {
     private WebDriver driver;
 
     public PortalRegisterPageObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
