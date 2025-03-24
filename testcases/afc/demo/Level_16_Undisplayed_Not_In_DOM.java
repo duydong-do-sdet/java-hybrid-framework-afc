@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.demo.UndisplayedPageGenerator;
+import pageObjects.demo.DemoPageGenerator;
 import pageObjects.demo.UndisplayedPageObject;
 
 public class Level_16_Undisplayed_Not_In_DOM extends BaseTest {
@@ -18,7 +18,7 @@ public class Level_16_Undisplayed_Not_In_DOM extends BaseTest {
     @BeforeClass
     public void beforeClass(String browserName, String appUrl) {
         driver = getWebDriver(browserName, appUrl);
-        undisplayedPage = UndisplayedPageGenerator.getUndisplayedPage(driver);
+        undisplayedPage = DemoPageGenerator.getUndisplayedPage(driver);
     }
 
     @Test
