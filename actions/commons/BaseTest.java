@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import utilities.DataFakerConfig;
 
 import java.io.File;
 import java.time.Duration;
@@ -85,7 +86,7 @@ public class BaseTest {
         deleteAllFilesInFolder("allure-results");
     }
 
-    public void deleteAllFilesInFolder(String folderName) {
+    protected void deleteAllFilesInFolder(String folderName) {
         try {
             String folderPath = GlobalConstants.PROJECT_BASE_PATH + folderName;
             File folder = new File(folderPath);
@@ -121,7 +122,7 @@ public class BaseTest {
         killAllDriverProcesses();
     }
 
-    public void killAllDriverProcesses() {
+    protected void killAllDriverProcesses() {
         try {
             String[] driverNames = {"geckodriver", "chromedriver", "msedgedriver", "safaridriver"};
             String osName = GlobalConstants.OS_NAME.toLowerCase();
@@ -148,6 +149,10 @@ public class BaseTest {
         } catch (Exception e) {
             System.out.println("Error while killing driver processes: " + e.getMessage());
         }
+    }
+
+    protected DataFakerConfig getDataFakerFrom(String locale) {
+        return new DataFakerConfig(locale);
     }
 
 }
