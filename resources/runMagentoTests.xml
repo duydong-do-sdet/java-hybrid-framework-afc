@@ -16,7 +16,7 @@
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="afc.magento.Level_21_Data_Faker"/>
+            <class name="afc.magento.Level_22_Manage_Test_Data"/>
         </classes>
     </test>
 
