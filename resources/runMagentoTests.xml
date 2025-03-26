@@ -16,7 +16,7 @@
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="afc.magento.Level_22_Manage_Test_Data"/>
+            <class name="afc.magento.Level_22_Manage_Data_II_POJO"/>
         </classes>
     </test>
 

@@ -2,7 +2,7 @@ package afc.magento;
 
 import commons.BaseTest;
 import commons.PageGeneratorManager;
-import magentoData.PortalData;
+import magentoData.PojoData;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -15,14 +15,15 @@ import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
 import pageObjects.magento.portal.myAccount.PortalAccountInformationPageObject;
 import pageObjects.magento.portal.myAccount.PortalAddressBookPageObject;
 
-public class Level_22_Manage_Test_Data extends BaseTest {
+public class Level_22_Manage_Data_II_POJO extends BaseTest {
     private WebDriver driver;
     private PortalHomePageObject homePage;
     private PortalRegisterPageObject registerPage;
     private PortalAccountDashboardPageObject accountDashboardPage;
     private PortalAccountInformationPageObject accountInformationPage;
     private PortalAddressBookPageObject addressBookPage;
-    private String firstName, lastName, fullName, emailAddress, password;
+    private String fullName;
+    private PojoData pojoData;
 
     @Parameters({"browser", "portalUrl"})
     @BeforeClass
@@ -30,26 +31,21 @@ public class Level_22_Manage_Test_Data extends BaseTest {
         driver = getWebDriver(browserName, appUrl);
         homePage = PageGeneratorManager.getPortalHomePage(driver);
 
-        firstName = PortalData.UserInfo.FIRSTNAME;
-        lastName = PortalData.UserInfo.LASTNAME;
-        fullName = firstName + " " + lastName;
-        emailAddress = PortalData.UserInfo.EMAIL_USERNAME + getRandomNumber() + PortalData.UserInfo.EMAIL_DOMAIN;
-        password = PortalData.UserInfo.PASSWORD;
+        pojoData = PojoData.getPojoData();
+
+        pojoData.setFirstName("Dong");
+        pojoData.setLastName("Do");
+        pojoData.setEmailAddress("dongafc" + getRandomNumber() + "@gmail.com");
+        pojoData.setPassword("SeJava@4");
+
+        fullName = pojoData.getFirstName() + " " + pojoData.getLastName();
     }
 
     @Test
     public void User_01_Register() {
         registerPage = (PortalRegisterPageObject) homePage.selectAccountHeaderDropdownWithValue("Register");
 
-        registerPage.sendKeysToTextboxByTitle("First Name", firstName);
-
-        registerPage.sendKeysToTextboxByTitle("Last Name", lastName);
-
-        registerPage.sendKeysToTextboxByTitle("Email Address", emailAddress);
-
-        registerPage.sendKeysToTextboxByTitle("Password", password);
-
-        registerPage.sendKeysToTextboxByTitle("Confirm Password", password);
+        registerPage.sendKeysToRegisterForm(pojoData);
 
         accountDashboardPage = registerPage.clickRegisterButton();
     }
@@ -64,7 +60,7 @@ public class Level_22_Manage_Test_Data extends BaseTest {
 
         String contactInfo = accountDashboardPage.getContactInformationText();
         Assert.assertTrue(contactInfo.contains(fullName));
-        Assert.assertTrue(contactInfo.contains(emailAddress));
+        Assert.assertTrue(contactInfo.contains(pojoData.getEmailAddress()));
     }
 
     @Test

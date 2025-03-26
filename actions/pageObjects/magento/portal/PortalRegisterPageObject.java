@@ -2,6 +2,7 @@ package pageObjects.magento.portal;
 
 import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
+import magentoData.PojoData;
 import org.openqa.selenium.WebDriver;
 import pageObjects.magento.common.PortalPageObject;
 import pageObjects.magento.portal.myAccount.PortalAccountDashboardPageObject;
@@ -61,6 +62,14 @@ public class PortalRegisterPageObject extends PortalPageObject {
         sendKeysToPasswordTextbox(password);
         sendKeysToConfirmPasswordTextbox(password);
         return clickRegisterButton();
+    }
+
+    public void sendKeysToRegisterForm(PojoData pojoData) {
+        sendKeysToFirstNameTextbox(pojoData.getFirstName());
+        sendKeysToLastNameTextbox(pojoData.getLastName());
+        sendKeysToEmailTextbox(pojoData.getEmailAddress());
+        sendKeysToPasswordTextbox(pojoData.getPassword());
+        sendKeysToConfirmPasswordTextbox(pojoData.getPassword());
     }
 
 }
