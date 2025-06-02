@@ -20,4 +20,31 @@ public class GlobalConstants {
     public static final String OS_NAME = System.getProperty("os.name");
     public static final String JAVA_VERSION = System.getProperty("java.version");
 
+
+    // User Urls
+    public static final String PROD_USER_URL = "";
+    public static final String TEST_USER_URL = "";
+    public static final String STAGING_USER_URL = "";
+    public static final String DEMO_USER_URL = "";
+    public static final String DEV_ADMIN_URL = "";
+
+    // Admin Urls
+    public static final String DEV_USER_URL = "";
+    public static final String TEST_ADMIN_URL = "";
+    public static final String STAGING_ADMIN_URL = "";
+    public static final String DEMO_ADMIN_URL = "";
+    public static final String PROD_ADMIN_URL = "";
+
+    enum BrowsersList {
+        FIREFOX, CHROME, EDGE;
+    }
+
+    enum ServersList {
+        DEV, TEST, STAGING, DEMO, PROD;
+    }
+
+    enum RolesList {
+        ADMIN, USER;
+    }
+
 }

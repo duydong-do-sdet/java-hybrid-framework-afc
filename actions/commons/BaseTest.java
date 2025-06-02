@@ -1,5 +1,8 @@
 package commons;
 
+import commons.GlobalConstants.BrowsersList;
+import commons.GlobalConstants.RolesList;
+import commons.GlobalConstants.ServersList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +17,8 @@ import utilities.DataFakerConfig;
 
 import java.io.File;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class BaseTest {
@@ -42,6 +47,66 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.get(appUrl);
         return driver;
+    }
+
+    protected WebDriver openPageByServerAndRole(String browserName, String serverName, String roleName) {
+        BrowsersList browser = BrowsersList.valueOf(browserName.toUpperCase());
+        switch (browser) {
+            case FIREFOX:
+                driver = new FirefoxDriver();
+                break;
+            case CHROME:
+                driver = new ChromeDriver();
+                break;
+            case EDGE:
+                driver = new EdgeDriver();
+                break;
+            default:
+                throw new RuntimeException("Unsupported browser: " + browserName);
+        }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
+        driver.manage().window().maximize();
+        driver.get(urlByServerAndRole(serverName, roleName));
+        return driver;
+    }
+
+    private String urlByServerAndRole(String serverName, String roleName) {
+        ServersList server = ServersList.valueOf(serverName.toUpperCase());
+        RolesList role = RolesList.valueOf(roleName.toUpperCase());
+
+        Map<RolesList, Map<ServersList, String>> urls = new HashMap<>();
+        Map<ServersList, String> userUrls = new HashMap<>();
+        Map<ServersList, String> adminUrls = new HashMap<>();
+
+        userUrls.put(ServersList.DEV, GlobalConstants.DEV_USER_URL);
+        userUrls.put(ServersList.TEST, GlobalConstants.TEST_USER_URL);
+        userUrls.put(ServersList.STAGING, GlobalConstants.STAGING_USER_URL);
+        userUrls.put(ServersList.DEMO, GlobalConstants.DEMO_USER_URL);
+        userUrls.put(ServersList.PROD, GlobalConstants.PROD_USER_URL);
+        urls.put(RolesList.USER, userUrls);
+
+        adminUrls.put(ServersList.DEV, GlobalConstants.DEV_ADMIN_URL);
+        adminUrls.put(ServersList.TEST, GlobalConstants.TEST_ADMIN_URL);
+        adminUrls.put(ServersList.STAGING, GlobalConstants.STAGING_ADMIN_URL);
+        adminUrls.put(ServersList.DEMO, GlobalConstants.DEMO_ADMIN_URL);
+        adminUrls.put(ServersList.PROD, GlobalConstants.PROD_ADMIN_URL);
+        urls.put(RolesList.ADMIN, adminUrls);
+
+        if (!urls.containsKey(role)) {
+            throw new RuntimeException("Invalid role: '" + roleName.toUpperCase() + "'");
+        }
+
+        Map<ServersList, String> roleUrls = urls.get(role);
+
+        if (!roleUrls.containsKey(server)) {
+            throw new RuntimeException("Invalid server: '" + serverName.toUpperCase() + "'");
+        }
+
+        String url = roleUrls.get(server);
+
+        log.info("Url: " + url);
+
+        return url;
     }
 
     protected int getRandomNumber() {

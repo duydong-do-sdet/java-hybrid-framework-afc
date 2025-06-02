@@ -10,8 +10,9 @@
         <!--<listener class-name="reportConfig.AllureReportListener"/>-->
     </listeners>
 
-    <parameter name="portalUrl" value="https://live.techpanda.org/"/>
-    <parameter name="adminUrl" value="https://live.techpanda.org/index.php/backendlogin"/>
+    <parameter name="server" value="test"/>
+    <parameter name="adminRole" value="admin"/>
+    <parameter name="userRole" value="user"/>
 
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
